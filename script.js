@@ -16,8 +16,8 @@ var _e = (function () {
 
 			console.log( aLeftCoord );
 
-			this.createMap('map-left', aLeftCoord, 4, 'https://cdn.glitch.com/47a601d2-716b-42e5-84ec-1baca75147c0%2Fstickman-blue.png?v=1604441613168');
-			this.createMap('map-right', [16829524.943931032, -4002747.2499114294], 4, 'https://cdn.glitch.com/47a601d2-716b-42e5-84ec-1baca75147c0%2Fstickman-orange.png?v=1604441623040');
+			this.createMap('map-left', aLeftCoord, 4, 'stickman-blue.png');
+			this.createMap('map-right', [16829524.943931032, -4002747.2499114294], 4, 'stickman-orange.png');
 
 			this.mapPackages[ 'map-left' ].map.on("click", this.mapClicked.bind(this));
 
