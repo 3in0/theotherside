@@ -8,13 +8,9 @@ var _e = (function () {
 
 		initialise: function () {
 
-			console.log( "initialise" );
-
 			let aLonLat = [ 151, -33 ];
 
 			var aLeftCoord = window.ol.proj.transform( aLonLat, 'EPSG:4326', 'EPSG:3857' );
-
-			console.log( aLeftCoord );
 
 			this.createMap('map-left', aLeftCoord, 4, 'stickman-blue.png');
 			this.createMap('map-right', [16829524.943931032, -4002747.2499114294], 4, 'stickman-orange.png');
@@ -31,9 +27,6 @@ var _e = (function () {
 			var aCoord = this.mapPackages[ 'map-left' ].map.getCoordinateFromPixel(aPixel);
 
 			var aLonLat = window.ol.proj.transform( aCoord, 'EPSG:3857', 'EPSG:4326');
-
-			console.log( aLonLat );
-			console.log( aCoord );
 
 			this.mapPackages[ 'map-left' ].map.getView().setCenter( aCoord );
 			this.moveRight( aLonLat );
@@ -81,19 +74,12 @@ var _e = (function () {
 
 			var aCoord = window.ol.proj.transform( aLonLat, 'EPSG:4326', 'EPSG:3857' );
 
-			console.log( aLonLat );
-			console.log( aCoord );
-
 			this.mapPackages[ 'map-left' ].map.getView().setCenter( aCoord );
 			this.moveRight( aLonLat );
 
 		},
 
 		createMap: function (aName, aCenter, aZoom, aVector) {
-
-			console.log( "creating map ", aName );
-
-			// STAMEN
 
 			let aStamenLayer = new ol.layer.Tile({
 				source: new ol.source.Stamen({
@@ -204,8 +190,6 @@ var _e = (function () {
 
 			this.initialise();
 
-			//$(window).resize( this.initialise.bind( this ) );
-
 		}
 
 	}
@@ -214,13 +198,9 @@ var _e = (function () {
 
 }());
 
-$(document).ready(
+document.addEventListener("DOMContentLoaded", function(event) { 
 
-	function () {
+	this.launchHook();
 
-		this.launchHook();
-
-	}.bind(_e)
-
-);
+}.bind( _e ) );
 
